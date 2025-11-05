@@ -1,0 +1,211 @@
+/* 1. Жалпы Стильдер (Минимализм) */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #dbe1e9; /* Сұралған сыртқы фон түсі */
+    color: #000000; /* Қара мәтін */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 2. MAIN Контейнеріндегі ӨЗГЕРІСТЕР */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    
+    /* Ақ фон және көлеңке АЛЫНЫП ТАСТАЛДЫ */
+    background: none; 
+    box-shadow: none;
+    border-radius: 0; 
+
+    position: relative; 
+    overflow: hidden;
+}
+
+/* 2.1. MAIN-ға ЖАЛПЫ PNG Фонды Қосу (ЖАЛҒЫЗ ФОН) */
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url('img/dombyra_design_bg.png'); /* Сұралған PNG */
+    
+    background-repeat: no-repeat; 
+    background-size: 80%; /* Үлкендеу размер */
+    
+    /* ******** ҚАЙТА ТҮЗЕТУ: 'top lefts' орнына 'top left' ********* */
+    background-position: top left; 
+    
+    opacity: 1; /* Мөлдірлік */
+    z-index: -1; /* Фонды мәтіннің қақ артына жіберу */
+}
+
+/* 3. SECTION - Мәтін бөлімдерінің стилі */
+section {
+    margin-bottom: 0;
+    padding: 20px; 
+    
+    /* Section-дағы фонды АЛЫП ТАСТАЙМЫЗ */
+    background: none; 
+    border-radius: 0; 
+    
+    /* Ажыратқыш сызықты сақтаймыз */
+    position: relative;
+    z-index: 2; /* Мәтін алда тұруы керек */
+    overflow: hidden;
+}
+
+/* ******** SECTION-ға ЖЕКЕ PNG ФОН ҚОСУ стилін ЖОЯМЫЗ ********* */
+section::before {
+    content: none; 
+}
+
+/* Мәтін мен тақырыптарды фондық суреттің үстіне қою */
+h2, p, ul, .image-note, button {
+    position: relative;
+    z-index: 3; 
+}
+/* ------------------------------------------------------------------------ */
+
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: #333333;
+    font-size: 1.6em;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/* 4. HEADER - PNG фондық дизайн (Жоғарғы сол жақтағы кішкентай фонды ЖОЯМЫЗ) */
+header {
+    background-color: #dbe1e9;
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 3; 
+}
+
+/* ******** HEADER-дегі кішкентай PNG дизайнын ЖОЯМЫЗ ********* */
+header::before {
+    content: none; 
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    color: #000000;
+    position: relative;
+    z-index: 2; 
+}
+
+/* 5. Қалған элементтердің стилі (өзгеріссіз) */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+ul li::before {
+    content: "—"; 
+    color: #000000;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* ... қалған стилдер (сурет, түйме, footer) ... */
+
+
+.dombyra-photo {
+    width: 600px; /* Қандай өлшем керек – қоясың */
+    display: block;
+    margin: 10px auto 80px auto; 
+}
+
+
+button {
+    background-color: #333333;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #555555;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f0f0f0;
+    color: #555555;
+    margin-top: auto;
+    font-size: 0.9em;
+}
+
+/* 6. Мобильді Бейімделу (Responsive Design) - Телефондар үшін */
+@media (max-width: 650px) {
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+    main::before {
+        background-size: 90%; /* Фондық суретті кішірейту, телефонда 90% */
+    }
+    
+    header {
+        padding: 20px 0;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    button {
+        padding: 10px 15px;
+        width: 90%;
+        box-sizing: border-box;
+    }
+
+    /* ✅ Телефон экранында домбыра суретін оңтайлау */
+    .dombyra-photo {
+        width: 75%;
+        margin: -120px auto 30px auto;
+        display: block;
+    }
+}
+
+
