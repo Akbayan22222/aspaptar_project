@@ -1,0 +1,14 @@
+# Жүйелік файлдарды елемеу
+NTUSER.DAT*
+*.log
+*.blf
+*.regtrans-ms
+.bash_history
+.gitconfig
+# Қажет емес үлкен папкаларды елемеу
+/AppData/
+/Documents/
+/Downloads/
+/Videos/
+/Pictures/
+/Music/
